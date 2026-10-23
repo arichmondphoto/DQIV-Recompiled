@@ -1,12 +1,25 @@
 {
   "version": 5,
   "configurePresets": [{
-    "name": "windows-game",
+    "name": "macos-game",
     "generator": "Visual Studio 17 2022",
     "architecture": "ARM64",
-    "binaryDir": "${sourceDir}/build32"
+    "binaryDir": "${sourceDir}/buildarm64"
   }],
   "buildPresets": [
-    {"name": "windows-game", "configurePreset": "windows-game", "configuration": "Release"}
+    {"name": "macos-game", "configurePreset": "macos-game", "configuration": "Release"}
+  ]
+}
+
+{
+  "version": 5,
+  "configurePresets": [{
+    "name": "linux-game",
+    "generator": "Visual Studio 17 2022",
+    "architecture": "x64",
+    "binaryDir": "${sourceDir}/buildlinux64"
+  }],
+  "buildPresets": [
+    {"name": "linux-game", "configurePreset": "linux-game", "configuration": "Release"}
   ]
 }
