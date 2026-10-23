@@ -3,7 +3,7 @@
   "configurePresets": [{
     "name": "windows-game",
     "generator": "Visual Studio 17 2022",
-    "architecture": "Win32",
+    "architecture": "ARM64",
     "binaryDir": "${sourceDir}/build32"
   }],
   "buildPresets": [
