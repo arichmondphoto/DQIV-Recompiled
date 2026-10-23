@@ -114,7 +114,7 @@ try {
     }
 
     New-Item -ItemType Directory -Force dist | Out-Null
-    & $pack build32\Release\DragonQuestIV assets addons dist\DragonQuestIV
+    & $pack buildarm64\Release\DragonQuestIV assets addons dist\DragonQuestIV
     if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
     Write-Host 'Created dist\DragonQuestIV' -ForegroundColor Green
 } catch {
