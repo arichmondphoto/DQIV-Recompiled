@@ -21,3 +21,12 @@ jobs:
       - name: Run Build Script
         shell: cmd
         run: build.bat
+
+      # Step 3: Save create an artifact
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: DragonQuestIV
+          path: |
+            /buildarm64/*
+          compression-level: 9
