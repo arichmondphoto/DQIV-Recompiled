@@ -74,11 +74,11 @@ try {
             Get-ChildItem 'build32\_deps' -Directory -Filter '*-subbuild' -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force
         }
     }
-    & $cmake --preset windows-game -G $visualStudio.Generator
+    & $cmake --preset macos-game -G $visualStudio.Generator
     if ($LASTEXITCODE -ne 0) { throw 'Configuration failed (see the messages above)' }
-    & $cmake --build --preset windows-game --parallel 8
+    & $cmake --build --preset macos-game --parallel 8
     if ($LASTEXITCODE -ne 0) { throw 'Build failed (see the messages above)' }
-    $pack = '.\build32\Release\dqiv_pack.exe'
+    $pack = '.\build32\Release\dqiv_pack'
     $inbox = 'ROMandOBBfileHere'
 
     # The game's data, from the player's ROM.
@@ -114,9 +114,9 @@ try {
     }
 
     New-Item -ItemType Directory -Force dist | Out-Null
-    & $pack build32\Release\DragonQuestIV.exe assets addons dist\DragonQuestIV.exe
+    & $pack build32\Release\DragonQuestIV assets addons dist\DragonQuestIV
     if ($LASTEXITCODE -ne 0) { throw 'Packaging failed' }
-    Write-Host 'Created dist\DragonQuestIV.exe' -ForegroundColor Green
+    Write-Host 'Created dist\DragonQuestIV' -ForegroundColor Green
 } catch {
     $failed = $true
     Write-Host ''
