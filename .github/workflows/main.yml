@@ -28,5 +28,5 @@ jobs:
         with:
           name: DragonQuestIV
           path: |
-            /buildarm64/*
+            /dist/DragonQuestIV*
           compression-level: 9
